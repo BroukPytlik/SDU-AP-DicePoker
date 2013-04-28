@@ -17,7 +17,10 @@
 
     <!-- Rules -->
     <string name="title_activity_rules">RulesActivity</string>
-    <string name="rules_text">How to play, blah blah blah</string>
+    <string name="rules_text_1">Two players, each has five dices. The goal is get higher sum of all dices than the other player has. </string>
+	<string name="rules_text_2">The game has three rounds and in each round player can select dices for throwing - he can throw with all dices, with one, with no one...</string>
+	<string name="rules_text_3">At the end of the third round, values of all dices  are summarized and the player with higher score wins.</string>
+	<string name="rules_text_4">If player do not shake with his device (for example if the device is without an accelerometer), after few seconds the game  will roll instead of him.</string>
 
     <!-- Prefs -->
     <string name="pref_play_over_bt_summary">Do you want to play on one device, or on two connected with BT?</string>

@@ -155,4 +155,13 @@ public class Dice {
 			lock(false);
 		}
 	}
+	
+	/**
+	 * Set the dice to default state
+	 */
+	public void reset(){
+		locked_system = true;
+		locked_manual = false;
+		setImage();
+	}
 }

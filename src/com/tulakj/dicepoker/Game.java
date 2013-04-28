@@ -45,8 +45,11 @@ public class Game {
 	}
 	
 	public void waitForRoll(){
-			tooltip.setText(R.string.game_do_shake );
-		
+		tooltip.setText(R.string.game_do_shake );
+		// prevent users to lock/unlock dice during shaking
+		playerA.lockDices();
+		playerB.lockDices();
+		// set state
 		state = WAITING_FOR_ROLL;
 	}
 	public void waitForDiceSelect(){
@@ -126,7 +129,11 @@ public class Game {
 	public void resetGame(){
 		round=0;
 		state=NEW_GAME;
-		playerA.firstRound = true;
-		playerB.firstRound = true;
+		actualPlayer=playerA;
+		playerA.reset();
+		playerB.reset();
+		waitForDiceSelect();
 	}
+	
+	
 }

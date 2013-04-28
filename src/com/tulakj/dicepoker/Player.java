@@ -47,12 +47,15 @@ public class Player {
 		}
 	}
 	
-	public void setInactive(){
-		activity.setImageResource(R.drawable.player_inactive);
-		// also lock dices
+	public void lockDices(){
 		for(Dice dice:dices){
 			dice.lock(true);
 		}
+	}
+	public void setInactive(){
+		activity.setImageResource(R.drawable.player_inactive);
+		// also lock dices
+		lockDices();
 	}
 	public void setActive(){
 		activity.setImageResource(R.drawable.player_active);
@@ -61,6 +64,13 @@ public class Player {
 			for(Dice dice:dices){
 				dice.unlock(true);
 			}
+		}
+	}
+	
+	public void reset(){
+		firstRound = true;
+		for(Dice dice:dices){
+			dice.reset();
 		}
 	}
 	/**

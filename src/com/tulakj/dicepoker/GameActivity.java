@@ -182,8 +182,8 @@ SensorEventListener {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.game, menu);
-		return true;
+		//getMenuInflater().inflate(R.menu.game, menu);
+		return false;
 	}
 
 	/* ***************************************************************************
@@ -269,9 +269,10 @@ SensorEventListener {
 						if(D)Log.v(TAG, "Stops after shaking. Game: selecting dices.");
 						stopMsg();
 
-					}else if(roundStarted == WASNT_SHAKED && System.currentTimeMillis() - roundStarted >MAX_SHAKE_TIMEOUT){
+					}else if(lastShakeTime == WASNT_SHAKED && System.currentTimeMillis() - roundStarted >MAX_SHAKE_TIMEOUT){
 						// skip shaking, maybe the sensors are not working
 						if(D)Log.v(TAG, "Stops after timeout Game: selecting dices.");
+						vibrator.vibrate(VIBRATION_LENGTH);
 						stopMsg();
 					}
 				}
@@ -302,7 +303,7 @@ SensorEventListener {
 
 			case R.id.button_throw:
 				if(game.getState()==Game.SELECTING_DICES|| game.getState() == Game.NEW_GAME){
-					startRound();
+					waitForShake();
 				}
 				break;
 			case R.id.dice_A_1:
@@ -336,7 +337,7 @@ SensorEventListener {
 	 * 
 	 */
 
-	private void startRound(){
+	private void waitForShake(){
 		lastShakeTime = WASNT_SHAKED;
 		oldsum = 0;
 		if (mMyThread == null) {
@@ -367,7 +368,7 @@ SensorEventListener {
 		/* ***** Toasts info */
 		int w = game.getWinner();
 		String winner="Both ("+game.getPlayerA().getName()+", "+game.getPlayerB().getName()+")";
-		String looser="";
+		String looser=" no-one";
 		if(w == Game.WINNER_A){
 			winner=game.getPlayerA().getName();
 			looser=game.getPlayerB().getName();
@@ -378,9 +379,9 @@ SensorEventListener {
 		}
 		
 		if(!game.nextRound()){
+			game.resetGame();
 			// if no other round is possible
 			endGame(winner,looser);
-			game.resetGame();
 		}else{
 			//toastShow("Winner of this round is: "+winner+", score is: "+game.getPlayerA().getName()+" - "+game.getPlayerA().getScore()+", "+game.getPlayerB().getName()+" - "+game.getPlayerB().getScore(),Toast.LENGTH_LONG);
 		}
