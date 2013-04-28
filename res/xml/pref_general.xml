@@ -1,0 +1,22 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="bt_game_checkbox"
+        android:summary="@string/pref_play_over_bt_summary"
+        android:title="@string/pref_play_over_bt" />
+    
+    <ListPreference android:key="pref_sensitivity" 
+        android:defaultValue="2"
+        android:title="@string/pref_sensitivity" 
+        android:entryValues="@array/pref_sensitivity_list_values" 
+        android:entries="@array/pref_sensitivity_list_names" />
+    
+    <EditTextPreference android:key="pref_player_name"
+        android:title="@string/pref_player_name_title" 
+        android:summary="@string/pref_player_name_summary"
+        android:defaultValue="@string/playerA"
+        />
+
+
+</PreferenceScreen>

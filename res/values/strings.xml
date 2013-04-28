@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Dice Poker</string>
+    <string name="playerA">Player A</string>
+    <string name="playerB">Player B</string>
+
+    <!-- SQL -->
+    <string name="sql_games">CREATE TABLE games ( _id integer PRIMARY
+    KEY AUTOINCREMENT,created_at long, winner string, looser string );</string>
+
+    <!-- Main menu -->
+    <string name="action_settings">Settings</string>
+    <string name="play_game">Play game</string>
+    <string name="rules">Rules</string>
+    <string name="history">History</string>
+
+    <!-- Rules -->
+    <string name="title_activity_rules">RulesActivity</string>
+    <string name="rules_text">How to play, blah blah blah</string>
+
+    <!-- Prefs -->
+    <string name="pref_play_over_bt_summary">Do you want to play on one device, or on two connected with BT?</string>
+    <string name="pref_play_over_bt">Online (Bluetooth) game</string>
+    <string name="pref_sensitivity">G-sensor sensitivity</string>
+    <string name="pref_player_name_title">Your nickname</string>
+    <string name="pref_player_name_summary"></string>
+
+    <string-array name="pref_sensitivity_list_values">
+        <item>0</item>
+        <item>2</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="pref_sensitivity_list_names">
+        <item>High</item>
+        <item>Medium</item>
+        <item>Low</item>
+    </string-array>
+
+    <!-- Game -->
+    <string name="title_activity_game">Game</string>
+    <string name="throw_dices">Throw</string>
+    <string name="game_do_shake_for_start">Throw for starting game.</string>
+    <string name="game_select_dices">Select dices you want to keep and then pres Throw.</string>
+    <string name="game_do_shake">Shake your phone.</string>
+    
+    <!-- History -->
+    <string name="title_activity_history">History of games</string>
+    <string name="title_last_games">Last games</string>
+
+</resources>
