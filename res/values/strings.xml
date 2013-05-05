@@ -7,7 +7,7 @@
 
     <!-- SQL -->
     <string name="sql_games">CREATE TABLE games ( _id integer PRIMARY
-    KEY AUTOINCREMENT,created_at long, winner string, looser string );</string>
+    KEY AUTOINCREMENT,created_at long, player_a string, player_b string, winner integer, combination_a integer, combination_b integer );</string>
 
     <!-- Main menu -->
     <string name="action_settings">Settings</string>
@@ -16,12 +16,66 @@
     <string name="history">History</string>
 
     <!-- Rules -->
-    <string name="title_activity_rules">RulesActivity</string>
-    <string name="rules_text_1">Two players, each has five dices. The goal is get higher sum of all dices than the other player has. </string>
-	<string name="rules_text_2">The game has three rounds and in each round player can select dices for throwing - he can throw with all dices, with one, with no one...</string>
-	<string name="rules_text_3">At the end of the third round, values of all dices  are summarized and the player with higher score wins.</string>
-	<string name="rules_text_4">If player do not shake with his device (for example if the device is without an accelerometer), after few seconds the game  will roll instead of him.</string>
-
+    <string name="title_activity_rules">Rules of Dice Poker</string>
+    <string name="rules_text"><![CDATA[
+    <html><body>
+    <h1>Basic informations</h1>
+    <p>
+   		This is game for two players, each of them has five dices 
+   		and the goal is to get better combination than the other player has.
+   		This game can be played both locally (players take turns at the device), 
+   		or through BlueTooth (each player control his own device).
+    </p>
+    
+    <h1>How to play</h1>
+	<p>
+		The game begins by throwing dices. If it is played by BlueTooth, 
+		the first move has the player which is acting like a server.
+   	</p>
+	<p>
+		On each round, each player at first selects dices which he wants 
+		to throw (white background) or wants to keep (yellow background). 
+		The selection is done by clicking on a dice.
+		Then the player press a <b>Throw</b> button and shake with his device.
+		The throwed dices are rolled and the second player is on the move. 
+   	</p>
+   	<p>
+   		If the dices are transparent, it means they are locked and can\'t be changed 
+   		- before their first throw, both player has locked their dices. 
+   	</p>
+   	<p>
+   		Note: If a player does not shake his device in few seconds 
+   		(for example if the device has no sensors, or he forget), 
+   		the throw is simulated automaticaly.
+   	</p>
+   	
+    <h1>Victory conditions</h1>
+    <p>
+		There are these possible combinations (from the lowest to the highest one):
+	</p>
+	<p>
+		<ul >
+		    <li><b>Nothing:</b> <i>five mismatched dice forming no sequence longer than four.</i></li>
+		    <li><b>Pair:</b> <i>two dice showing the same value.</i></li>
+		    <li><b>Two Pairs:</b> <i>two pairs of dice, each showing the same value.</i></li>
+		    <li><b>Three-of-a-Kind:</b> <i>three dice showing the same value</i></li>
+		    <li><b>Five High Straight:</b> <i>dice showing values from 1 through 5, inclusive.</i></li>
+		    <li><b>Six High Straight:</b> <i>dice showing values from 2 through 6, inclusive.</i></li>
+		    <li><b>Full House:</b> <i>Pair of one value and Three-of-a-Kind of another.</i></li>
+		    <li><b>Four-of-a-Kind:</b> <i>four dice showing the same value.</i></li>
+	    	<li><b>Five-of-a-Kind:</b> <i>all five dice showing the same value.</i></li>
+	    </ul>
+	</p>
+	<p>
+		The player with higher combinations wins.
+		If both players has the same combination, the game compare values of these combinations. 
+		For example, if player A has pair of 1 and player B has pair of 3, then the player B wins.
+		But if both players has also same values, it is a draw.
+	</p>
+   
+   </body></html>
+   ]]></string>
+    
     <!-- Prefs -->
     <string name="pref_play_over_bt_summary">Do you want to play on one device, or on two connected with BT?</string>
     <string name="pref_play_over_bt">Online (Bluetooth) game</string>
@@ -46,9 +100,54 @@
     <string name="game_do_shake_for_start">Throw for starting game.</string>
     <string name="game_select_dices">Select dices you want to keep and then pres Throw.</string>
     <string name="game_do_shake">Shake your phone.</string>
+    <string name="winner_is">Winner is %1$s with %2$s, loser is %3$s with %4$s.</string>
+    <string name="draw_is">It is draw between %1$s and %2$s, both has %3$s.</string>
     
+    <!-- Combinations -->
+    <string name="score_nothing">nothing</string>
+    <string name="score_pair">one pair</string>
+    <string name="score_two_pairs">two pairs</string>
+    <string name="score_three">three-of-a-kind</string>
+    <string name="score_five_high">five high straight</string>
+    <string name="score_six_high">six high straight</string>
+    <string name="score_full_house">full house</string>
+    <string name="score_four">four-of-a-kind</string>
+    <string name="score_five">five-of-a-kind</string>
+
     <!-- History -->
     <string name="title_activity_history">History of games</string>
     <string name="title_last_games">Last games</string>
+    
+    <!--  Multiplayer -->
+    <string name="server_or_client">Do you want to be server or client?</string>
+    <string name="be_server">Server</string>
+    <string name="be_client">Client</string>
+    <string name="title_activity_multiplayer">Select second device</string>
+    <string name="title_list_of_devices">Found devices:</string>
+    <string name="button_discoverable">Make discoverable</string>
+    <string name="button_enable_bt">Enable BT</string>
+    
+    <!-- Bluetooth -->
+    <string name="scanning">scanning for devices...</string>
+    <string name="select_device">select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+    <string name="not_connected">You are not connected to a device</string>
+    <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Cannot start the game.</string>
+    <string name="title_connecting">connecting...</string>
+    <string name="title_connected_to">connected: </string>
+    <string name="title_not_connected">not connected</string>
+    <string name="waiting">Waiting</string>
+    <string name="connected">Connected.</string>
+    <string name="waiting_for_client">Waiting for a client.</string>
+    <string name="waiting_for_remote_throw">Wait for the remote player finish his throw.</string>
+    
+    
+    
+    
+    <string name="history_text">HISTORY_TEXT</string>
 
 </resources>

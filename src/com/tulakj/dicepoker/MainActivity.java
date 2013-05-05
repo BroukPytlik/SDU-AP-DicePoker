@@ -5,11 +5,14 @@ package com.tulakj.dicepoker;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
@@ -19,7 +22,8 @@ public class MainActivity extends Activity {
 
 	private static final String TAG = "DICE POKER";
     private static final boolean D = true;
-    
+
+	private SharedPreferences appPref;
 
 	Context context;
 
@@ -37,7 +41,13 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
         if(D) Log.d(TAG, "+++ onCreate +++");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		//Remove title bar
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
+		
+
+		// get shared preferenece
+		appPref = PreferenceManager.getDefaultSharedPreferences(this);
 		
 		Button startButton = (Button) findViewById(R.id.button_start);
 		startButton.setOnClickListener(mOnClickListener);
@@ -47,6 +57,9 @@ public class MainActivity extends Activity {
 		settingsButton.setOnClickListener(mOnClickListener);
 		Button historyButton = (Button) findViewById(R.id.button_history);
 		historyButton.setOnClickListener(mOnClickListener);
+		
+		
+		
 	}
 
 	@Override
@@ -64,7 +77,7 @@ public class MainActivity extends Activity {
 		switch (id) {
 
 		case R.id.button_start:
-			intent = new Intent(this, GameActivity.class); 
+			intent = new Intent(this, GameActivity.class);
 			startActivity(intent);
 			break;
 		case R.id.button_settings:

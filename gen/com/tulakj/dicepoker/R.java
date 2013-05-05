@@ -9,14 +9,19 @@ package com.tulakj.dicepoker;
 
 public final class R {
     public static final class array {
-        public static final int pref_example_list_titles=0x7f070002;
-        public static final int pref_example_list_values=0x7f070003;
-        public static final int pref_sensitivity_list_names=0x7f070001;
-        public static final int pref_sensitivity_list_values=0x7f070000;
-        public static final int pref_sync_frequency_titles=0x7f070004;
-        public static final int pref_sync_frequency_values=0x7f070005;
+        public static final int pref_example_list_titles=0x7f080002;
+        public static final int pref_example_list_values=0x7f080003;
+        public static final int pref_sensitivity_list_names=0x7f080001;
+        public static final int pref_sensitivity_list_values=0x7f080000;
+        public static final int pref_sync_frequency_titles=0x7f080004;
+        public static final int pref_sync_frequency_values=0x7f080005;
     }
     public static final class attr {
+    }
+    public static final class color {
+        public static final int bright_text=0x7f050001;
+        public static final int dark_text=0x7f050002;
+        public static final int transparent_text=0x7f050000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -25,8 +30,8 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
@@ -44,107 +49,156 @@ public final class R {
         public static final int terning5_highlighted=0x7f02000c;
         public static final int terning6=0x7f02000d;
         public static final int terning6_highlighted=0x7f02000e;
+        public static final int wood_bg=0x7f02000f;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0019;
-        public static final int button_history=0x7f0a0015;
-        public static final int button_rules=0x7f0a0013;
-        public static final int button_settings=0x7f0a0014;
-        public static final int button_start=0x7f0a0012;
-        public static final int button_throw=0x7f0a000f;
-        public static final int dice_A_1=0x7f0a0002;
-        public static final int dice_A_2=0x7f0a0003;
-        public static final int dice_A_3=0x7f0a0004;
-        public static final int dice_A_4=0x7f0a0005;
-        public static final int dice_A_5=0x7f0a0006;
-        public static final int dice_B_1=0x7f0a0009;
-        public static final int dice_B_2=0x7f0a000a;
-        public static final int dice_B_3=0x7f0a000b;
-        public static final int dice_B_4=0x7f0a000c;
-        public static final int dice_B_5=0x7f0a000d;
-        public static final int game_tooltip=0x7f0a000e;
-        public static final int last_games=0x7f0a0011;
-        public static final int player_A_activity=0x7f0a0000;
-        public static final int player_A_name=0x7f0a0001;
-        public static final int player_B_activity=0x7f0a0007;
-        public static final int player_B_name=0x7f0a0008;
-        public static final int textView1=0x7f0a0010;
-        public static final int textView2=0x7f0a0016;
-        public static final int textView3=0x7f0a0017;
-        public static final int textView4=0x7f0a0018;
+        public static final int action_settings=0x7f0b0020;
+        public static final int button_discoverable=0x7f0b001e;
+        public static final int button_enable_bt=0x7f0b001d;
+        public static final int button_history=0x7f0b0015;
+        public static final int button_rules=0x7f0b0013;
+        public static final int button_scan=0x7f0b001c;
+        public static final int button_settings=0x7f0b0014;
+        public static final int button_start=0x7f0b0012;
+        public static final int button_throw=0x7f0b000f;
+        public static final int dice_A_1=0x7f0b0002;
+        public static final int dice_A_2=0x7f0b0003;
+        public static final int dice_A_3=0x7f0b0004;
+        public static final int dice_A_4=0x7f0b0005;
+        public static final int dice_A_5=0x7f0b0006;
+        public static final int dice_B_1=0x7f0b0009;
+        public static final int dice_B_2=0x7f0b000a;
+        public static final int dice_B_3=0x7f0b000b;
+        public static final int dice_B_4=0x7f0b000c;
+        public static final int dice_B_5=0x7f0b000d;
+        public static final int game_tooltip=0x7f0b000e;
+        public static final int last_games=0x7f0b0011;
+        public static final int new_devices=0x7f0b001b;
+        public static final int paired_devices=0x7f0b0019;
+        public static final int player_A_activity=0x7f0b0000;
+        public static final int player_A_name=0x7f0b0001;
+        public static final int player_B_activity=0x7f0b0007;
+        public static final int player_B_name=0x7f0b0008;
+        public static final int scrollView1=0x7f0b0017;
+        public static final int textView1=0x7f0b0010;
+        public static final int textView2=0x7f0b0016;
+        public static final int title_new_devices=0x7f0b001a;
+        public static final int title_paired_devices=0x7f0b0018;
+        public static final int webView1=0x7f0b001f;
     }
     public static final class layout {
         public static final int activity_game=0x7f030000;
         public static final int activity_history=0x7f030001;
         public static final int activity_main=0x7f030002;
-        public static final int activity_rules=0x7f030003;
+        public static final int activity_multiplayer=0x7f030003;
+        public static final int activity_rules=0x7f030004;
+        public static final int device_name=0x7f030005;
     }
     public static final class menu {
-        public static final int game=0x7f090000;
-        public static final int history=0x7f090001;
-        public static final int main=0x7f090002;
-        public static final int rules=0x7f090003;
+        public static final int game=0x7f0a0000;
+        public static final int history=0x7f0a0001;
+        public static final int main=0x7f0a0002;
+        public static final int multiplayer=0x7f0a0003;
+        public static final int rules=0x7f0a0004;
     }
     public static final class string {
         /**  Main menu 
          */
-        public static final int action_settings=0x7f060004;
-        public static final int app_name=0x7f060000;
-        public static final int game_do_shake=0x7f060016;
-        public static final int game_do_shake_for_start=0x7f060014;
-        public static final int game_select_dices=0x7f060015;
-        public static final int history=0x7f060007;
-        public static final int play_game=0x7f060005;
-        public static final int playerA=0x7f060001;
-        public static final int playerB=0x7f060002;
-        public static final int pref_default_display_name=0x7f06001e;
-        public static final int pref_description_social_recommendations=0x7f06001c;
+        public static final int action_settings=0x7f070004;
+        public static final int app_name=0x7f070000;
+        public static final int be_client=0x7f070023;
+        public static final int be_server=0x7f070022;
+        public static final int bt_not_enabled_leaving=0x7f070030;
+        public static final int button_discoverable=0x7f070026;
+        public static final int button_enable_bt=0x7f070027;
+        public static final int button_scan=0x7f07002e;
+        public static final int connected=0x7f070035;
+        public static final int draw_is=0x7f070015;
+        public static final int game_do_shake=0x7f070013;
+        public static final int game_do_shake_for_start=0x7f070011;
+        public static final int game_select_dices=0x7f070012;
+        public static final int history=0x7f070007;
+        public static final int history_text=0x7f070038;
+        public static final int none_found=0x7f07002b;
+        public static final int none_paired=0x7f07002a;
+        public static final int not_connected=0x7f07002f;
+        public static final int play_game=0x7f070005;
+        public static final int playerA=0x7f070001;
+        public static final int playerB=0x7f070002;
+        public static final int pref_default_display_name=0x7f07003e;
+        public static final int pref_description_social_recommendations=0x7f07003c;
         /**  Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f060020;
+        public static final int pref_header_data_sync=0x7f070040;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f06001a;
+        public static final int pref_header_general=0x7f07003a;
         /**  Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f060023;
-        public static final int pref_play_over_bt=0x7f06000e;
+        public static final int pref_header_notifications=0x7f070043;
+        public static final int pref_play_over_bt=0x7f07000b;
         /**  Prefs 
          */
-        public static final int pref_play_over_bt_summary=0x7f06000d;
-        public static final int pref_player_name_summary=0x7f060011;
-        public static final int pref_player_name_title=0x7f060010;
-        public static final int pref_ringtone_silent=0x7f060026;
-        public static final int pref_sensitivity=0x7f06000f;
-        public static final int pref_title_add_friends_to_messages=0x7f06001f;
-        public static final int pref_title_display_name=0x7f06001d;
-        public static final int pref_title_new_message_notifications=0x7f060024;
-        public static final int pref_title_ringtone=0x7f060025;
-        public static final int pref_title_social_recommendations=0x7f06001b;
-        public static final int pref_title_sync_frequency=0x7f060021;
-        public static final int pref_title_system_sync_settings=0x7f060022;
-        public static final int pref_title_vibrate=0x7f060027;
-        public static final int rules=0x7f060006;
-        public static final int rules_text_1=0x7f060009;
-        public static final int rules_text_2=0x7f06000a;
-        public static final int rules_text_3=0x7f06000b;
-        public static final int rules_text_4=0x7f06000c;
+        public static final int pref_play_over_bt_summary=0x7f07000a;
+        public static final int pref_player_name_summary=0x7f07000e;
+        public static final int pref_player_name_title=0x7f07000d;
+        public static final int pref_ringtone_silent=0x7f070046;
+        public static final int pref_sensitivity=0x7f07000c;
+        public static final int pref_title_add_friends_to_messages=0x7f07003f;
+        public static final int pref_title_display_name=0x7f07003d;
+        public static final int pref_title_new_message_notifications=0x7f070044;
+        public static final int pref_title_ringtone=0x7f070045;
+        public static final int pref_title_social_recommendations=0x7f07003b;
+        public static final int pref_title_sync_frequency=0x7f070041;
+        public static final int pref_title_system_sync_settings=0x7f070042;
+        public static final int pref_title_vibrate=0x7f070047;
+        public static final int rules=0x7f070006;
+        public static final int rules_text=0x7f070009;
+        /**  Bluetooth 
+         */
+        public static final int scanning=0x7f070028;
+        public static final int score_five=0x7f07001e;
+        public static final int score_five_high=0x7f07001a;
+        public static final int score_four=0x7f07001d;
+        public static final int score_full_house=0x7f07001c;
+        /**  Combinations 
+         */
+        public static final int score_nothing=0x7f070016;
+        public static final int score_pair=0x7f070017;
+        public static final int score_six_high=0x7f07001b;
+        public static final int score_three=0x7f070019;
+        public static final int score_two_pairs=0x7f070018;
+        public static final int select_device=0x7f070029;
+        /**   Multiplayer 
+         */
+        public static final int server_or_client=0x7f070021;
         /**  SQL 
          */
-        public static final int sql_games=0x7f060003;
-        public static final int throw_dices=0x7f060013;
+        public static final int sql_games=0x7f070003;
+        public static final int throw_dices=0x7f070010;
         /**  Game 
          */
-        public static final int title_activity_game=0x7f060012;
+        public static final int title_activity_game=0x7f07000f;
         /**  History 
          */
-        public static final int title_activity_history=0x7f060017;
+        public static final int title_activity_history=0x7f07001f;
+        public static final int title_activity_multiplayer=0x7f070024;
         /**  Rules 
          */
-        public static final int title_activity_rules=0x7f060008;
-        public static final int title_activity_settings=0x7f060019;
-        public static final int title_last_games=0x7f060018;
+        public static final int title_activity_rules=0x7f070008;
+        public static final int title_activity_settings=0x7f070039;
+        public static final int title_connected_to=0x7f070032;
+        public static final int title_connecting=0x7f070031;
+        public static final int title_last_games=0x7f070020;
+        public static final int title_list_of_devices=0x7f070025;
+        public static final int title_not_connected=0x7f070033;
+        public static final int title_other_devices=0x7f07002d;
+        public static final int title_paired_devices=0x7f07002c;
+        public static final int waiting=0x7f070034;
+        public static final int waiting_for_client=0x7f070036;
+        public static final int waiting_for_remote_throw=0x7f070037;
+        public static final int winner_is=0x7f070014;
     }
     public static final class style {
         /** 
@@ -168,11 +222,11 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f090001;
     }
     public static final class xml {
         public static final int pref_general=0x7f040000;

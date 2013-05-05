@@ -9,6 +9,8 @@
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
         android:allowBackup="true"
@@ -39,6 +41,10 @@
         <activity
             android:name="com.tulakj.dicepoker.HistoryActivity"
             android:label="@string/title_activity_history" >
+        </activity>
+        <activity
+            android:name="com.tulakj.dicepoker.MultiplayerActivity"
+            android:label="@string/title_activity_multiplayer" >
         </activity>
     </application>
 

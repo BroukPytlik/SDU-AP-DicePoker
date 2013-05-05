@@ -2,11 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wood_bg" 
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:screenOrientation="landscape"
     tools:context=".HistoryActivity" >
+    <!-- Source of the wooden texture: http://beyond-oddities.deviantart.com/art/Local-Texture-Three-by-One-77137822 -->
 
     <TextView
         android:id="@+id/textView1"
@@ -16,7 +19,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
         android:text="@string/title_last_games"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/bright_text" />
 
     <TextView
         android:id="@+id/last_games"
@@ -24,6 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:text="aaaaa" />
+        android:background="@color/transparent_text"
+        android:text="@string/history_text"
+        android:textColor="@color/dark_text" />
 
 </RelativeLayout>

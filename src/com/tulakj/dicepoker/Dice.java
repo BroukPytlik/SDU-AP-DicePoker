@@ -123,6 +123,12 @@ public class Dice {
 		return 0;
 	}
 
+	/**
+	 * Will unlock the dice - if TRUE is given, it will unlock the system lock,
+	 * else it will unlock the manual lock.
+	 * 
+	 * @param system
+	 */
 	public void unlock(boolean system){
 		if(system){
 			locked_system = false;
@@ -134,6 +140,12 @@ public class Dice {
 		setImage();
 	}
 
+	/**
+	 * Will lock the dice - if TRUE is given, it will lock the system lock,
+	 * else it will lock the manual lock.
+	 * 
+	 * @param system
+	 */
 	public void lock(boolean system){
 		if(system){
 			locked_system = true;
@@ -163,5 +175,21 @@ public class Dice {
 		locked_system = true;
 		locked_manual = false;
 		setImage();
+	}
+	
+	/**
+	 * Return true, if the dice is manually locked
+	 * @return
+	 */
+	public boolean isLocked(){
+		if(locked_manual) return true;
+		return false;
+	}
+	
+	public void setValue(int val){
+		if(val >=0 && val < 6)
+			value = val;
+		else
+			value = 0;
 	}
 }

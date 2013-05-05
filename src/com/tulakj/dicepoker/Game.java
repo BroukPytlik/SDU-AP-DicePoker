@@ -7,21 +7,28 @@ public class Game {
 	private Player playerA;
 	private Player playerB;
 	private Player actualPlayer;
+	private Player remotePlayer;
 	private TextView tooltip;
-	
 	private int round = 0;
+	
+	public boolean multiplayer = false;
+	
 	public static int MAX_ROUNDS = 3; 
 
 	public static int NEW_GAME = 0;
 	public static int SELECTING_DICES = 1;
 	public static int WAITING_FOR_ROLL = 2;
+	public static int WAITING_FOR_REMOTE_ROLL = 3;
 	
-	public static int WINNER_A = 1;
-	public static int WINNER_B = 2;
+	public static int PLAYER_A = 1;
+	public static int PLAYER_B = 2;
 	public static int WINNER_DRAW = 3;
+	
+	
 	
 	private int state = NEW_GAME;
 	
+	public boolean paused = true;
 	
 	public Game(Player A,Player B, TextView tooltip){
 		playerA = A;
@@ -30,9 +37,26 @@ public class Game {
 		switchPlayers();
 	}
 	
+	public void setRemotePlayer(int player) {
+		if(player == PLAYER_A){
+			remotePlayer = playerA;
+		}else{
+			remotePlayer = playerB;
+		}
+	}
+	
+	public Player getRemotePlayer(){
+		return remotePlayer;
+	}
+	
+	public Player getActualPlayer(){
+		return actualPlayer;
+	}
+	
 	public Player getPlayerA(){
 		return playerA;
 	}
+	
 	public Player getPlayerB(){
 		return playerB;
 	}
@@ -53,6 +77,15 @@ public class Game {
 		state = WAITING_FOR_ROLL;
 	}
 	public void waitForDiceSelect(){
+
+		//Log.d("Game Class", "Wait for select");
+		if(actualPlayer == remotePlayer){
+			//Log.d("Game Class", "Wait for select - remote");
+			tooltip.setText(R.string.waiting_for_remote_throw);
+			state=WAITING_FOR_REMOTE_ROLL;
+			return;
+		}
+		
 		// we want different text for the first round
 		if(actualPlayer.firstRound){
 			state = NEW_GAME;
@@ -70,10 +103,20 @@ public class Game {
 		
 		if(actualPlayer == playerA){
 			actualPlayer = playerB;
+			//Log.d("Game Class", "Switch Players - to B");
 		}else{
 			actualPlayer = playerA;
+			//Log.d("Game Class", "Switch Players - to A");
 		}
-		actualPlayer.setActive();
+		
+		if(actualPlayer != remotePlayer){
+			// set actual player active - but only if it is not the remote player
+			actualPlayer.setActive(false);
+			//Log.d("Game Class", "Switch Players - to local");
+		}else{
+			actualPlayer.setActive(true);
+			//Log.d("Game Class", "Switch Players - to remote");
+		}
 			
 	}
 	
@@ -95,8 +138,8 @@ public class Game {
 		int a=playerA.getScore();
 		int b=playerB.getScore();
 		
-		if(a>b) return WINNER_A;
-		else if(b>a) return WINNER_B;
+		if(a>b) return PLAYER_A;
+		else if(b>a) return PLAYER_B;
 		
 		return WINNER_DRAW;
 	}
@@ -127,6 +170,7 @@ public class Game {
 	 * Reset the game to the initial state
 	 */
 	public void resetGame(){
+		paused = true;
 		round=0;
 		state=NEW_GAME;
 		actualPlayer=playerA;

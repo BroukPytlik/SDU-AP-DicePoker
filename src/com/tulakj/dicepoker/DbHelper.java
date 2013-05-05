@@ -9,12 +9,15 @@ import android.util.Log;
 public class DbHelper extends SQLiteOpenHelper {
 	static final String TAG = "DbHelper";
 	static final String DB_NAME = "dice_poker.db";
-	static final int DB_VERSION = 3;
+	static final int DB_VERSION = 5;
 	static final String TABLE_GAMES = "games";
 	static final String C_T_ID = "_id";
 	static final String C_T_CREATED_AT = "created_at";
+	static final String C_T_PLAYER_A = "player_a";
+	static final String C_T_PLAYER_B = "player_b";
 	static final String C_T_WINNER = "winner";
-	static final String C_T_LOOSER = "looser";
+	static final String C_T_COMB_A = "combination_a";
+	static final String C_T_COMB_B = "combination_b";
 	
 	private static final String GET_ALL_ORDER_BY = C_T_CREATED_AT + " DESC";
 	private static final String[] SELECT_LAST_GAMES = { "max("
@@ -46,6 +49,7 @@ public class DbHelper extends SQLiteOpenHelper {
 		// so:
 
 		db.execSQL("drop table if exists " + TABLE_GAMES); // blow the old database
+		//db.execSQL("create table " + TABLE_GAMES); // blow the old database
 		// away
 		Log.d(TAG, "onUpdated");
 		onCreate(db); // run onCreate to get new database
